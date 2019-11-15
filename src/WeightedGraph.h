@@ -1,3 +1,4 @@
+//	Joseph Castaner
 //
 //  WeightedGraph.h
 //  
@@ -132,10 +133,13 @@ namespace csi281 {
             // this aligns with the inner function visit() from the pseudo code in the slides
             auto visit = [&](V v) {
                 // YOUR CODE HERE
+
+
             };
             
             // YOUR CODE HERE
             
+
             return solution;
         }
 
