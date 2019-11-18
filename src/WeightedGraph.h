@@ -134,12 +134,47 @@ namespace csi281 {
             auto visit = [&](V v) {
                 // YOUR CODE HERE
 
+				//Taken from assignment 9
 
+				visited.insert(v); //add start point as first visited
+
+				for (auto &i : neighborsWithWeights(v)) //checks neighbors of the current vertex
+				{
+					bool good = true;
+
+					if (visited.find(i.from) == visited.end()) //is this the end? check
+					{
+						good = false;
+					}
+
+					if (good == true) //if good, add them
+					{
+						frontier.push(i);
+					}
+				}
             };
+			visit(start); //visits the start
             
             // YOUR CODE HERE
-            
 
+			while (frontier.empty() == false) //while not empty
+			{
+				WeightedEdge currentSelection = frontier.top();
+				frontier.pop(); //pop what just got selected as current
+
+				bool good = false;
+
+				if (visited.end() != visited.find(currentSelection.to)) //while the current isnt the end
+				{
+					good = true;
+				}
+
+				if (good == true)
+					continue; // thank you to Kevin Rode for helping with this keyword, apparently necessary here
+
+				solution.push_back(currentSelection); //pushback the current selection
+				visit(currentSelection.to); //go to next
+			}
             return solution;
         }
 

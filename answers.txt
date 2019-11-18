@@ -1,13 +1,42 @@
 Joseph Castaner
 
-1)
+1) You can multiply the edge weights by -1 in order to have Jarnik's algorithm calculate the tree with the largest
+possible weight. This way it finds the widest possible path between it's points, which means you end up with it 
+maximizing the weight of the minimum-weight edge.
+(Source: https://en.wikipedia.org/wiki/Minimum_spanning_tree#Related_problems)
 
-2)
+2) The travelling salesman problem specifies that you must only visit any point once, and you must return to your start
+once you go through all points, which means that every point has two paths: one leading to it, and one leading out of
+it. However, the minimum spanning tree simply states that you have to reach every point via the least heavy path:
+it does not specify that you have to go back to the start. This means minimum spanning trees will have (in my own words)
+"dead ends", where a point will only have a path leading to it and not one from it, as well as points having multiple
+paths from them or to them if they are the lowest weight ways to get to nearby points.
 
-3)
+3) NOTE: im not super sure if i did this correctly, but i tried.
 
-4)
+1) Seattle 2) San Francisco 3) LA 4) Riverside 5) Phoenix 6) Dallas
+| 0 1 0 0 0 0 |
+| 0 0 1 1 0 0 |
+| 0 0 0 1 1 0 |
+| 0 0 0 0 1 0 |
+| 0 0 0 0 0 1 |
 
-5)
+4) When a priority queue is used, the complexity becomes O((V+E)logV) because each vertex is inserted in the priority
+queue only once and insertion in the queue takes log time. Otherwise, another implementation (like an adjacency matrix)
+would make the complexity O(V^3). Other implementations have different complexities due to their operations being
+handled differently.
+(Source: https://www.hackerearth.com/practice/algorithms/graphs/minimum-spanning-tree/tutorial/,
+https://www.geeksforgeeks.org/prims-algorithm-simple-implementation-for-adjacency-matrix-representation/)
 
-6)
+5) Jarnik's algorith works one vertex at a time, meaning the algorithm does not look at the bigger picture but rather, in
+the interest of time and efficiency makes decisions based on the data it currently has inputted. So realistically, it
+is possible for the algorithm to give you solutions that are not the most optimal, but come close.
+
+6) Kosaraju's algorithm (also known as the Kosaraju–Sharir algorithm) is a linear time algorithm to find the strongly 
+connected components of a directed graph. Computer Scientists Aho, Hopcroft and Ullman credit it to S. Rao Kosaraju 
+and Micha Sharir. Kosaraju suggested it in 1978 but did not publish it, while Sharir independently discovered it
+and published it in 1981. What this algorithm does is look at a directed graph and find which vertices are strongly 
+connected, which means the vertex is reachable from all other vertices. Since Kosaraju did not publish the work, but
+did suggest it, Sharir's publishing of it was overtaken by the discovery realistically having been years before the
+publishing.
+(Source: https://en.wikipedia.org/wiki/Kosaraju%27s_algorithm)
